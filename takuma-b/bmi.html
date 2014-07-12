@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Hedder</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+	<script type="text/javascript">
+		<!--
+	    function calc(bmi) {
+	      var bmiti = Math.round(eval(bmi[0].value) / (eval(bmi[1].value)/100) / (eval(bmi[1].value)/100) * 100) / 100;
+	      var scr = Math.round((eval(bmi[1].value)/100) * (eval(bmi[1].value)/100) * 22 * 25 * 100) / 100;
+	      var ckl = Math.round(scr / 3 / 100) * 100 + 100;
+	      bmi[3].value = bmiti
+	      bmi[4].value = scr
+	      bmi[5].value = Math.round((eval(bmi[1].value)/100) * (eval(bmi[1].value)/100) * 22 * 100) / 100;
+	      switch (ckl){
+	        case 400:
+	          window.open("menu/menu5.html","menu");
+	          break;
+	        case 500:
+	          window.open("menu/menu6.html","menu");
+	          break;
+	        case 600:
+	          window.open("menu/menu4.html","menu");
+	          break;
+	        case 700:
+	          window.open("menu/menu1.html","menu");
+	          break;
+	        case 800:
+	          window.open("menu/menu2.html","menu");
+	          break;
+	        case 900:
+	          window.open("menu/menu3.html","menu");
+	          break;
+	      }
+	      if(bmiti > 40){
+	        alert("bmiエラー");
+	        document.face.src = 'image/face_angree.png';
+	        document.getElementById("text").innerHTML="正常なBMIを算出できませんでした";
+	      }else if(bmiti > 25){
+	        document.face.src = 'image/face_angree.png';
+	        document.getElementById("text").innerHTML="太っています";
+	      }else if(bmiti > 18.5){
+	        document.face.src = 'image/face_smile.png';
+	        document.getElementById("text").innerHTML="普通です";
+	      }else if(bmiti > 10){
+	        document.face.src = 'image/face_angree.png';
+	        document.getElementById("text").innerHTML="痩せています";
+	      }else{
+	        alert("bmiエラー");
+	        document.face.src = 'image/face_angree.png';
+	        document.getElementById("text").innerHTML="正常なBMIを算出できませんでした";
+	      }
+	    }
+	    var frametop = "index.html";
+	    if(window.top.location.herf != frametop){
+	        window.top.location.href = frametop;
+	    }  
+	    //-->
+	</script>
+	<body>
+	<form method="post">
+      <table>
+	    <tr>
+			<td height="30" align="center">
+			  体重
+			</td>
+			<td>
+			  <input name="form0" value="" size="6" style="text-align:right" maxlength="3">kg
+			</td>
+		</tr>
+		<tr>
+			<td height="30" align="center">
+			  身長
+			</td>
+			<td>
+			  <input name="form1" value="" size="6" style="text-align:right" maxlength="3">cm
+			</td>
+		</tr>
+		<tr>
+			<td height="40" align="center" colspan="2">
+			  <input type="button" value="計算！" onClick="calc(this.form)">
+			</td>
+		</tr>
+		<tr>
+			<td height="30" align="center">
+			  BMI指数
+			</td>
+			<td>
+			  <input name="form3" value="" size="6" style="text-align:right">
+			</td>
+		</tr>
+		<tr>
+			<td height="30" align="center">
+			  適正カロリー
+			</td>
+			<td>
+			  <input name="form4" value="" size="6" style="text-align:right">kcl
+			</td>
+		</tr>
+		<tr>
+			<td height="30" align="center">
+			  適正体重
+			</td>
+			<td>
+			  <input name="form5" value="" size="6" style="text-align:right">kg
+			</td>
+		</tr>
+		<tr>
+			<td align="center" colspan="2">
+			    <img src="image/message.png" alt="メッセージ" width="80%" name="message">
+			    <span style="position: absolute; top: 255px; left: 40px; width: 130px;">
+			    <div id="text">身長と体重を入力してください</div>
+			    </span>
+			</td>
+		</tr>		<tr>
+			<td align="center" colspan="2">
+			    <img src="image/face_smile.png" alt="顔" width="80%" name="face">
+			</td>
+		</tr>
+	  </table>
+	</form>
+	</body>
+</html>
