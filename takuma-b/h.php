@@ -7,11 +7,3 @@ function h($var)  // HTMLでのエスケープ処理をする関数
     return htmlspecialchars($var, ENT_QUOTES, 'UTF-8');
   }
 }
-/* ?>終了タグ省略 ☆レシピ001☆（サーバーのPHP情報を知りたい） */
-
-/* 
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-

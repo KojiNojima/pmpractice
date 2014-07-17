@@ -4,7 +4,6 @@ To change this license header, choose License Headers in Project Properties.
 To change this template file, choose Tools | Templates
 and open the template in the editor.
 -->
-
 <html>
     <head>
         <title>学食メニュー推奨システム</title>
@@ -30,7 +29,7 @@ and open the template in the editor.
     </head>
 	<body>
             <div id="top">
-            <img src="image/title.png" alt="プロジェクトマネジメント学科" width="900" height="100">
+              <img src="image/title.png" alt="プロジェクトマネジメント学科" width="900" height="100">
             </div>
             <div id="menu">
                 <form method="post" action="search.php">
