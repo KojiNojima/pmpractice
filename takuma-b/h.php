@@ -7,3 +7,4 @@ function h($var)  // HTMLでのエスケープ処理をする関数
     return htmlspecialchars($var, ENT_QUOTES, 'UTF-8');
   }
 }
+?>
