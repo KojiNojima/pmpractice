@@ -5,22 +5,18 @@ session_start();
 $tai = $_POST['tai'];
 $sin = $_POST['sin'];
 $bmi = round($tai / ($sin/100) / ($sin/100), 2);
-$kcl = round(($sin/100) * ($sin/100) * 22 * 32, 2);
+$kcl = round(($sin/100) * ($sin/100) * 22 * 25, 2);
 $kg = round(($sin/100) * ($sin/100) * 22 , 2);
-$itiniti = $kcl / 3;
-echo $itiniti;
-print "<br>";
+$kari = ($kcl + 100) / 3 +100;
+$itiniti = round($kari, -2);
 try {
     # MySQLデータベースに接続します☆レシピ260☆
     $db = new PDO($dsn, $dbUser, $dbPass);
-      if ($db == null){
-        print('接続に失敗しました。<br>');
-    }
     $db->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
     $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
     #メニューをデータベースから取得する。
-    $sql = 'select * from lunch order by abs(Kcal - :itiniti) limit 1';
+    $sql = 'SELECT * FROM lunch WHERE MenuNo = :itiniti';
     $prepare = $db->prepare($sql);
     $prepare->bindValue(':itiniti', $itiniti,PDO::PARAM_INT);
     $prepare->execute();
@@ -34,8 +30,8 @@ try {
 }catch (PDOException $e) {
     echo 'エラーが発生しました。内容: ' . h($e->getMessage());
 }
-echo $menukcl - $itiniti;
 ?>
+                  
 <html>
     <head>
         <title>学食メニュー推奨システム</title>
@@ -56,9 +52,6 @@ echo $menukcl - $itiniti;
             }
             #main {
                 padding-left: 180px;
-            }
-            #text {
-            	position: absolute; top: 245px; left: 40px; width: 130px;
             }
         </style>
     </head>
@@ -117,18 +110,18 @@ echo $menukcl - $itiniti;
 		<tr>
 			<td align="center" colspan="2">
 			    <img src="image/message.png" alt="メッセージ" width="80%" name="message">
-			    <div id="text">
-			    身長と体重を入力してください
-				</div>
+			    <span style="position: absolute; top: 247px; left: 40px; width: 130px;">
+			    <div id="text">身長と体重を入力してください</div>
+			    </span>
 			</td>
-		</tr>		
-		<tr>
+		</tr>		<tr>
 			<td align="center" colspan="2">
 			    <img src="image/face_smile.png" alt="顔" width="80%" name="face">
                             <?php
                             if($bmi > 40){
                               $imageurl = "image/menu.PNG";
                                 echo '<script type="text/javascript">' ;
+                                echo 'alert("bmiエラー");' ;
                                 echo 'document.face.src = "image/face_angree.png";' ;
                                 echo 'document.getElementById("text").innerHTML="正常なBMIを算出できませんでした";' ;
                                 echo '</script>' ;
@@ -150,6 +143,7 @@ echo $menukcl - $itiniti;
                             }else{
                               $imageurl = "image/menu.PNG";
                                 echo '<script type="text/javascript">' ;
+                                echo 'alert("bmiエラー");' ;
                                 echo 'document.face.src = "image/face_angree.png";' ;
                                 echo 'document.getElementById("text").innerHTML="正常なBMIを算出できませんでした";' ;
                                 echo '</script>' ;

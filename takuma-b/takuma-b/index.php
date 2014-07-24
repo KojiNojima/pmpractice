@@ -1,3 +1,9 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
 <html>
     <head>
         <title>学食メニュー推奨システム</title>
@@ -19,9 +25,6 @@
             #main {
                 padding-left: 180px;
             }
-            #text {
-            	position: absolute; top: 250px; left: 40px; width: 130px;
-            }
         </style>
     </head>
 	<body>
@@ -36,7 +39,7 @@
 			  体重
 			</td>
 			<td>
-			  <input name="tai" size="6" style="text-align:right" maxlength="3">kg
+			  <input name="tai" value="" size="6" style="text-align:right" maxlength="3">kg
 			</td>
 		</tr>
 		<tr>
@@ -44,7 +47,7 @@
 			  身長
 			</td>
 			<td>
-			  <input name="sin" size="6" style="text-align:right" maxlength="3">cm
+			  <input name="sin" value="" size="6" style="text-align:right" maxlength="3">cm
 			</td>
 		</tr>
 		<tr>
@@ -78,12 +81,11 @@
 		<tr>
 			<td align="center" colspan="2">
 			    <img src="image/message.png" alt="メッセージ" width="80%" name="message">
-			    <div id="text">
-			    身長と体重を入力してください
-				</div>
+			    <span style="position: absolute; top: 255px; left: 40px; width: 130px;">
+			    <div id="text">身長と体重を入力してください</div>
+			    </span>
 			</td>
-		</tr>		
-		<tr>
+		</tr>		<tr>
 			<td align="center" colspan="2">
 			    <img src="image/face_smile.png" alt="顔" width="80%" name="face">
 			</td>
